@@ -1,10 +1,11 @@
 import math
 
 import matplotlib.pyplot as plt
+from matplotlib import transforms
 import numpy as np
 from geopy import distance
 
-
+fig, ax = plt.subplots()
 def coords_as_ints(coords_string):
     try:
         lat_lon = [x.strip() for x in coords_string.split(',')]
@@ -12,7 +13,7 @@ def coords_as_ints(coords_string):
         lon = lat_lon[1].rstrip('"')
         lat = float(lat)
         lon = float(lon)
-        return lat, lon
+        return lon, lat
     except ValueError:
         print(f"error: {coords_string}")
     return 0, 0
@@ -24,29 +25,94 @@ def open_file_and_copy_lines():
     for line in text_input:
         try:
             line = [x.strip() for x in line.split('\t')]
-            print(line[0])
             places_dict[line[0]] = line[1]
         except IndexError:
-            print(line[0])
             places_dict[line[0]] = line[1]
-    print(len(places_dict))
     return places_dict
 
-def find_the_nearest(town_1, town_dict):
-    pass
+
+def find_the_nearest(origin_coords, town_dict):
+    distance_nearest_town = 1000
+    for town in towns:
+        current_distance = distance.distance(origin_coords, coords_as_ints(town_dict[town]))
+        if current_distance == 0:
+            origin_name = town
+            print("Do nothing")
+        elif current_distance < distance_nearest_town:
+            distance_nearest_town = current_distance
+            name_of_town = town
+    print(f"Distance from {origin_name} to {name_of_town} is {distance_nearest_town})")
+    return name_of_town
+
+
+def find_the_furthest(origin_coords, town_dict):
+    distance_furthest_town = 0
+    for town in towns:
+        current_distance = distance.distance(origin_coords, coords_as_ints(town_dict[town]))
+        if current_distance == 0:
+            origin_name = town
+            print("Do nothing")
+        elif current_distance > distance_furthest_town:
+            distance_furthest_town = current_distance
+            name_of_town = town
+    print(f"Distance from {origin_name} to {name_of_town} is {distance_furthest_town})")
+    return name_of_town
+
+
+def graph_towns(*town_coords_to_graph):
+    groningen = coords_as_ints(towns["Groningen"])
+    for my_town in town_coords_to_graph:
+        x, y = my_town[0], my_town[1]
+        if my_town == groningen:
+            ax.scatter(x, y, color="red")
+        else:
+            ax.scatter(x, y, color="black")
+        print(my_town)
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     towns = open_file_and_copy_lines()
     count = 0
     for town in towns:
-        count += 1
         coords = coords_as_ints(towns[town])
         # print(f"{count}: {coords}")
-    print(len(towns))
-    town_a = coords_as_ints(towns["Groningen"])
-    town_b = coords_as_ints(towns["Ter Apel"])
-    print(distance.distance(town_a, town_b))
+        graph_towns(coords)
+
+
+
+
+    lauwersoog = coords_as_ints(towns["Lauwersoog"])
+    Delfzijl = coords_as_ints(towns["Delfzijl"])
+    ter_apel = coords_as_ints(towns["Ter Apel"])
+    # graph_towns(groningen, ter_apel, zoutkamp)
+    # find_the_nearest(origin_coords=groningen, town_dict=towns)
+    # find_the_furthest(origin_coords=groningen, town_dict=towns)
+    # x = lauwersoog[0]
+    # y = lauwersoog[1]
+    # my_color = "green"
+    # fig, ax = plt.subplots()
+    my_distance = distance.distance(lauwersoog, Delfzijl)
+    print(f"Distance from Groningen to Ter Apel: {my_distance}")
+    my_distance = distance.distance(lauwersoog, ter_apel)
+    print(f"Distance from Groningen to Zoutkamp: {my_distance}")
+    my_distance = distance.distance(ter_apel, Delfzijl)
+    print(f"Distance from Zoutkamp to Ter Apel: {my_distance}")
+    # ax.scatter(x, y, color=my_color)
+    # print(f"Groningen: {x}, {y}")
+    # x = Delfzijl[0]
+    # y = Delfzijl[1]
+    # my_color = "red"
+    # ax.scatter(x, y, color=my_color)
+    # print(f"Ter Apel: {x}, {y}")
+    # x = ter_apel[0]
+    # y = ter_apel[1]
+    # my_color = "orange"
+    # ax.scatter(x, y, color=my_color)
+    # print(f"Zoutkamp: {x}, {y}")
+
+
+    plt.show()
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
 
