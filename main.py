@@ -30,6 +30,18 @@ def open_file_and_copy_lines():
             places_dict[line[0]] = line[1]
     return places_dict
 
+def find_towns_within_distance(origin_coords, town_dict, distance_limit):
+    towns_in_range = []
+    for town in towns:
+        current_distance = distance.distance(origin_coords, coords_as_ints(town_dict[town]))
+        if current_distance == 0:
+            origin_name = town
+            print("Do nothing")
+        elif current_distance < distance_limit:
+            towns_in_range.append((town, current_distance))
+    print(f"Towns within {distance_limit}km of {origin_name}: {len(towns_in_range)}")
+    print(towns_in_range)
+
 
 def find_the_nearest(origin_coords, town_dict):
     distance_nearest_town = 1000
@@ -58,6 +70,10 @@ def find_the_furthest(origin_coords, town_dict):
     print(f"Distance from {origin_name} to {name_of_town} is {distance_furthest_town})")
     return name_of_town
 
+def graph_completed_green(town_completed):
+    x, y = town_completed[0], town_completed[1]
+    ax.scatter(x, y, color="green")
+
 
 def graph_towns(*town_coords_to_graph):
     groningen = coords_as_ints(towns["Groningen"])
@@ -67,7 +83,7 @@ def graph_towns(*town_coords_to_graph):
             ax.scatter(x, y, color="red")
         else:
             ax.scatter(x, y, color="black")
-        print(my_town)
+        #print(my_town)
 
 
 # Press the green button in the gutter to run the script.
@@ -79,8 +95,11 @@ if __name__ == '__main__':
         # print(f"{count}: {coords}")
         graph_towns(coords)
 
-
-
+    test_town = coords_as_ints(towns["Ter Apel"])
+    test_town_2 = coords_as_ints(towns["Groningen"])
+    find_towns_within_distance(test_town, towns, 10)
+    graph_completed_green(test_town)
+    find_distance(test_town, test_town_2)
 
     lauwersoog = coords_as_ints(towns["Lauwersoog"])
     Delfzijl = coords_as_ints(towns["Delfzijl"])
