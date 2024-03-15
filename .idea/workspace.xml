@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cda2e346-227a-4815-a83f-eb064b53f636" name="Changes" comment="GPX parser working - need to find how to waypoints">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OSRM_map_route.py" beforeDir="false" afterPath="$PROJECT_DIR$/OSRM_map_route.py" afterDir="false" />
-    </list>
+    <list default="true" id="cda2e346-227a-4815-a83f-eb064b53f636" name="Changes" comment="GPX parser working - need to find how to waypoints" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -222,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710496934877</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="GPX parser working - need to find how to waypoints">
+      <option name="closed" value="true" />
+      <created>1710502509964</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1710502509964</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
