@@ -36,6 +36,12 @@ def coords_as_ints(coords_string):
     return 0, 0
 
 
+def coord_as_float(coord_string):
+    as_float = float(coord_string)
+    print(as_float)
+    return as_float
+
+
 def find_towns_within_distance(origin_coords, towns_dict, distance_limit):
     towns_in_range = []
     for town in towns_dict:
@@ -162,6 +168,7 @@ if __name__ == '__main__':
         graph_towns(towns_dict[town], towns_dict=towns_dict)
 
     test_town = towns_dict["Groningen"]
+    coord_as_float("6.222222")
     get_name_of_town(test_town, towns_dict)
     test_town_b = towns_dict["Ter Apel"]
 

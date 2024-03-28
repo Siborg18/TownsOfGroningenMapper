@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cda2e346-227a-4815-a83f-eb064b53f636" name="Changes" comment="GPX parser working - need to find how to waypoints">
+    <list default="true" id="cda2e346-227a-4815-a83f-eb064b53f636" name="Changes" comment="Working on inputting location coords into GPX friendly string">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OSRM_map_route.py" beforeDir="false" afterPath="$PROJECT_DIR$/OSRM_map_route.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,18 +49,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Python.OSRM_map_route.executor&quot;: &quot;Run&quot;,
-    &quot;Python.gpxparser.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/PythonProjects/TownsOfGrunn&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.OSRM_map_route.executor": "Run",
+    "Python.gpxparser.executor": "Run",
+    "Python.main.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/PythonProjects/TownsOfGrunn"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\PythonProjects\TownsOfGrunn" />
@@ -238,7 +239,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710503139093</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Working on inputting location coords into GPX friendly string">
+      <option name="closed" value="true" />
+      <created>1710750943395</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1710750943395</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -261,7 +270,8 @@
     <MESSAGE value="Working on the Dijkstra's algorithm." />
     <MESSAGE value="Exploring anytree to help manage the varies routes the algorithm could take." />
     <MESSAGE value="GPX parser working - need to find how to waypoints" />
-    <option name="LAST_COMMIT_MESSAGE" value="GPX parser working - need to find how to waypoints" />
+    <MESSAGE value="Working on inputting location coords into GPX friendly string" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on inputting location coords into GPX friendly string" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -277,9 +287,9 @@
           <option name="timeStamp" value="108" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/OSRM_map_route.py</url>
-          <line>8</line>
-          <option name="timeStamp" value="113" />
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>170</line>
+          <option name="timeStamp" value="135" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
